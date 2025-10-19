@@ -1,0 +1,675 @@
+/* --- CSS Variables (New Professional Theme) --- */
+:root {
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    
+    /* New Professional/Formal Palette */
+    --color-primary: #0ea5e9; /* Clean Tech Blue (replaces magenta) */
+    --color-primary-dark: #0284c7; /* Darker blue for hovers */
+    --color-secondary-accent: #67e8f9; /* Lighter blue for gradients (replaces teal) */
+    --color-text: #f1f1f1;
+    --color-text-secondary: #b0b0b0;
+    
+    /* Glassmorphism */
+    --color-glass-bg: rgba(255, 255, 255, 0.05);
+    --color-glass-border: rgba(255, 255, 255, 0.2);
+    --backdrop-blur: 10px;
+}
+
+/* --- Global Reset & Base Styles --- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: var(--font-primary);
+    line-height: 1.6;
+    /* New dark slate/navy gradient (replaces purple animation) */
+    background: linear-gradient(135deg, #0f172a, #0b111e);
+    background-size: 100% 100%; /* Cover the whole page */
+    color: var(--color-text);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden; /* Prevent horizontal scroll from animations */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-primary);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-primary-dark);
+}
+
+section {
+    padding: 6rem 10%;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative; /* For animations */
+}
+
+h1, h2, h3 {
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+h1 { font-size: 3rem; }
+h2 {
+    font-size: 2.25rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+    color: var(--color-text);
+}
+
+/* Underline effect for section titles */
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--color-primary);
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: var(--color-text-secondary);
+}
+
+/* --- Buttons (with new hover glow) --- */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-dark);
+    color: #ffffff;
+    transform: translateY(-3px);
+    /* Updated Glow Effect */
+    box-shadow: 0 0 15px 5px rgba(14, 165, 233, 0.4);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-primary);
+    color: #ffffff;
+    transform: translateY(-3px);
+    /* Updated Glow Effect */
+    box-shadow: 0 0 15px 5px rgba(14, 165, 233, 0.4);
+}
+
+/* --- Navigation Bar (Glassmorphism) --- */
+header {
+    background-color: var(--color-glass-bg);
+    backdrop-filter: blur(var(--backdrop-blur));
+    border-bottom: 1px solid var(--color-glass-border);
+    box-shadow: none; /* Removed old shadow */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    padding: 0 10%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.nav-brand a {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text); /* Updated color */
+}
+.nav-brand a:hover {
+    color: var(--color-primary);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-link {
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--color-text-secondary); /* Updated color */
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.nav-link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: var(--color-primary);
+    transition: width 0.3s ease;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.nav-link.active,
+.nav-link:hover {
+    color: var(--color-text); /* Updated color */
+}
+
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: var(--color-text); /* Updated color */
+    transition: all 0.3s ease-in-out;
+}
+
+/* --- Hero Section (New Animated Title) --- */
+.hero {
+    min-height: calc(100vh - 70px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: transparent; /* No solid bg */
+}
+
+@keyframes text-gradient-flow {
+    to {
+        background-position: 200% center;
+    }
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    /* Animated Gradient Text (using new colors) */
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary-accent), var(--color-primary));
+    background-size: 200% auto;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: text-gradient-flow 4s linear infinite;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--color-text-secondary);
+    margin-bottom: 2rem;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* --- About Section --- */
+#about {
+    background-color: var(--color-glass-bg);
+    backdrop-filter: blur(var(--backdrop-blur));
+    border: 1px solid var(--color-glass-border);
+    border-radius: 16px;
+}
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    gap: 3rem;
+}
+
+.about-image img {
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+}
+
+/* --- Skills Section (New Glass Cards) --- */
+#skills {
+    background-color: transparent; /* No bg needed */
+}
+
+.skills-grid {
+    display: grid;
+    /* Updated minmax to give cards a bit more space */
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 1.5rem; /* Increased gap slightly */
+    text-align: center;
+}
+
+/* This is our new card container */
+.skill-card {
+    /* Glassmorphism effect */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--color-glass-border);
+    border-radius: 12px;
+    
+    /* Center the image and text */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    padding: 1.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+/* This styles the logo image inside the card */
+.skill-card img {
+    height: 50px; /* Adjust height as you like */
+    width: 50px;
+    object-fit: contain; /* Prevents image from stretching */
+    margin-bottom: 1rem;
+}
+
+/* This styles the text label below the image */
+.skill-card p {
+    color: var(--color-text);
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-bottom: 0; /* Remove default p margin */
+}
+
+/* This adds the hover and glow effect */
+.skill-card:hover {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    transform: translateY(-5px); /* A little more lift */
+    box-shadow: 0 0 20px 5px rgba(14, 165, 233, 0.4); /* Updated glow */
+}
+
+/* This ensures the text turns white on hover too */
+.skill-card:hover p {
+    color: #fff;
+}
+
+/* --- Projects Section (Glass Cards with 3D Hover) --- */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    /* Glassmorphism for cards */
+    background: var(--color-glass-bg);
+    backdrop-filter: blur(var(--backdrop-blur));
+    border: 1px solid var(--color-glass-border);
+    box-shadow: none; /* Removed old shadow */
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    /* Updated transition for new 3D hover */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.project-card:hover {
+    /* New 3D Tilt Effect */
+    transform: perspective(1000px) translateY(-10px) rotateY(5deg) scale(1.03);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2); /* Add shadow on hover for depth */
+}
+
+.project-image {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-bottom: 1px solid var(--color-glass-border);
+}
+
+.project-content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.project-description {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+}
+
+.project-tags {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag {
+    background-color: var(--color-primary); /* Updated color */
+    color: #fff;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.project-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.project-links a {
+    color: var(--color-text); /* Updated color */
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.project-links a:hover {
+    color: var(--color-primary);
+}
+
+.project-links i {
+    font-size: 1.1rem;
+}
+
+/* --- Hobby Section --- */
+#hobby {
+    /* We'll make this one simple, centered text */
+    background-color: transparent;
+    text-align: center;
+}
+
+.hobby-content {
+    /* This ensures it doesn't get too wide on large screens */
+    max-width: 700px; 
+    margin: 0 auto;
+}
+
+.hobby-description {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 2rem; /* Adds space between the text and the button */
+}
+
+/* Adds a small icon to the left of the button text */
+.hobby-content .btn i {
+    margin-right: 0.5rem;
+}
+
+/* --- Contact Section (Glass Form) --- */
+#contact {
+    /* Glassmorphism for contact section */
+    background-color: var(--color-glass-bg);
+    backdrop-filter: blur(var(--backdrop-blur));
+    border: 1px solid var(--color-glass-border);
+    border-radius: 16px;
+}
+
+.contact-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    margin-top: -2.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.contact-form {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-family: var(--font-primary);
+    /* Glassmorphism for inputs */
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--color-glass-border);
+    backdrop-filter: blur(5px);
+    color: var(--color-text); /* Set text color for input */
+    border-radius: 8px;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--color-text-secondary); /* Style placeholder */
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.3); /* Updated glow */
+}
+
+.contact-form .btn {
+    width: 100%;
+    font-size: 1.1rem;
+}
+
+/* --- Footer --- */
+footer {
+    text-align: center;
+    padding: 3rem 5%;
+    background-color: #0b111e; /* Updated dark background */
+    color: #fff;
+    margin-top: 4rem;
+}
+
+.social-links {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.social-links a {
+    color: #fff;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--color-primary);
+    transform: translateY(-3px);
+}
+
+.copyright {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    margin: 0;
+}
+
+/* --- New Scroll Animations --- */
+.fade-in-left,
+.fade-in-right {
+    opacity: 0;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-left {
+    transform: translateX(-40px);
+}
+
+.fade-in-right {
+    transform: translateX(40px);
+}
+
+.fade-in-left.visible,
+.fade-in-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/* --- Media Queries (Responsiveness) --- */
+@media (max-width: 992px) {
+    section {
+        padding: 4rem 5%;
+    }
+    .navbar {
+        padding: 0 5%;
+    }
+    .about-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .about-image {
+        margin: 0 auto 2rem;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    .hero-title { font-size: 2.8rem; }
+    .hero-subtitle { font-size: 1.2rem; }
+    
+    .skills-grid {
+        /* On small screens, make cards a bit smaller */
+        grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+        gap: 1rem;
+    }
+
+    .skill-card {
+        padding: 1rem 0.5rem;
+    }
+
+    .skill-card img {
+        height: 40px;
+        width: 40px;
+    }
+
+    /* --- Hamburger Menu Logic --- */
+    .hamburger {
+        display: block;
+    }
+    
+    /* Typo fix: nth-chils -> nth-child */
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 70px; /* Below navbar */
+        left: -100%;
+        /* Dark solid background for mobile menu */
+        background-color: #1a1a2e;
+        flex-direction: column;
+        width: 100%;
+        height: calc(100vh - 70px);
+        text-align: center;
+        transition: left 0.3s ease-in-out;
+        gap: 0;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-item {
+        width: 100%;
+    }
+
+    .nav-link {
+        display: block;
+        padding: 1.5rem 0;
+        width: 100%;
+    }
+    .nav-link::after {
+        display: none;
+    }
+    .nav-link:hover,
+    .nav-link.active {
+        background-color: var(--color-glass-bg); /* Glassy hover */
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+}
