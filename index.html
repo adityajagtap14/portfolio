@@ -15,6 +15,11 @@
 </head>
 <body>
 
+    <div class="orb-container">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+    </div>
+    
     <header>
         <nav class="navbar">
             <div class="nav-brand">
@@ -24,6 +29,7 @@
                 <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
                 <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
                 <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
+                <li class="nav-item"><a href="#education" class="nav-link">Education</a></li>
                 <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
                 <li class="nav-item"><a href="#hobby" class="nav-link">Hobby</a></li>
                 <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
@@ -103,6 +109,33 @@
             </div>
         </section>
 
+        <section id="education" class="fade-in-left">
+            <h2>My Education</h2>
+            <div class="education-grid">
+                <div class="education-card">
+                    <div class="education-header">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h3 class="education-degree">B.E in Computer Science</h3>
+                    </div>
+                    <p class="education-school">Shetty Institute of Technology</p>
+                    <p class="education-date">Graduating Year: 2028</p>
+                    <p class="education-details">
+                        Relevant Coursework: Data Structures, Algorithms, Web Development, Database Management Systems, Object-Oriented Programming.
+                    </p>
+                </div>
+                <div class="education-card">
+                    <div class="education-header">
+                        <i class="fas fa-school"></i>
+                        <h3 class="education-degree">Higher Secondary (Class XII)</h3>
+                    </div>
+                    <p class="education-school">KLE Society's Prerana PU College </p>
+                    <p class="education-date">Completed: 2022</p>
+                    <p class="education-details">
+                        Focused on Physics, Chemistry, Mathematics, and Computer Science (PCMC).
+                    </p>
+                </div>
+            </div>
+        </section>
         <section id="projects" class="fade-in-right">
             <h2>My Portfolio</h2>
             <div class="project-grid">
@@ -156,6 +189,12 @@
             <h2>Get In Touch</h2>
             <p class="contact-subtitle">I'm currently open to new opportunities. Send me a message!</p>
             <form id="contact-form" class="contact-form">
+                
+                <div id="form-success-message" class="form-success-message">
+                    <i class="fas fa-check-circle"></i>
+                    Thank you! Your message has been sent successfully.
+                </div>
+                
                 <div class="form-group">
                     <label for="name">Name</label>
                     <input type="text" id="name" name="name" required>
